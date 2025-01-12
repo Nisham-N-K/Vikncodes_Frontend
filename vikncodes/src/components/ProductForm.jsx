@@ -5,6 +5,8 @@ const ProductForm = ({ addProduct }) => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [stockCount, setStockCount] = useState(0);
+  const [productColor, setProductcolor] = useState("");
+  const [productSize, setproductSize] = useState("");
 
   const handleAddProduct = () => {
     if (productName && productPrice) {
@@ -12,11 +14,15 @@ const ProductForm = ({ addProduct }) => {
         name: productName,
         price: parseFloat(productPrice),
         count: stockCount,
+        color: productColor,
+        size: productSize,
       });
 
       setProductName("");
       setProductPrice("");
       setStockCount(0);
+      setProductcolor("");
+      setproductSize("");
 
       Swal.fire({
         title: "Success!",
@@ -73,6 +79,26 @@ const ProductForm = ({ addProduct }) => {
           placeholder="Enter stock count"
           value={stockCount}
           onChange={(e) => setStockCount(parseInt(e.target.value) || 0)}
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1 text-gray-300">Color:</label>
+        <input
+          type="text"
+          className="w-full p-2 rounded-lg bg-gray-800 text-white border-none"
+          placeholder="Enter product Color"
+          value={productColor}
+          onChange={(e) => setProductcolor(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-1 text-gray-300">Size:</label>
+        <input
+          type="text"
+          className="w-full p-2 rounded-lg bg-gray-800 text-white border-none"
+          placeholder="Enter product size"
+          value={productSize}
+          onChange={(e) => setproductSize(e.target.value)}
         />
       </div>
       <button
