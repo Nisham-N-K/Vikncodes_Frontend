@@ -60,7 +60,7 @@ const ProductManagement = () => {
             />
           </div>
           <button
-            className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold"
+            className="w-full py-2 bg-green-500 hover:bg-green-600 rounded-lg font-semibold"
             onClick={handleAddProduct}
           >
             Add Product
@@ -77,7 +77,17 @@ const ProductManagement = () => {
               </option>
             ))}
           </select>
-          <button className="w-full py-2 bg-green-500 hover:bg-green-600 rounded-lg font-semibold">
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-1">Stock Count:</label>
+            <input
+              type="number"
+              className="w-full p-2 rounded-lg bg-gray-800 text-white border-none"
+              placeholder="Enter stock count"
+              value={stockCount}
+              onChange={(e) => setStockCount(parseInt(e.target.value))}
+            />
+          </div>
+          <button className="w-full py-2 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold">
             Update Stock
           </button>
         </div>
@@ -112,7 +122,7 @@ const ProductManagement = () => {
                   >
                     <td className="py-2 px-4">{product.name}</td>
                     <td className="py-2 px-4">{product.count}</td>
-                    <td className="py-2 px-4">${product.price.toFixed(2)}</td>
+                    <td className="py-2 px-4">₹{product.price.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
