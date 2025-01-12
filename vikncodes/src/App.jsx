@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductForm from "./components/ProductForm";
-import ProductProvider from "./context/ProductContext";
-import "./index.css";
+import ProductList from "./components/ProductList";
+import StockManagement from "./components/StockManagement";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  const addProduct = (product) => {
+    setProducts([...products, product]);
+  };
+
+  const updateProductStock = (name, count) => {
+    const updatedProducts = products.map((product) =>
+      product.name === name ? { ...product, count } : product
+    );
+    setProducts(updatedProducts);
+  };
+
   return (
-    <ProductProvider>
-      <div>
-        <div className="space-y-10">
-          <ProductForm />
-        </div>
+    <div className="min-h-screen px-8 py-8 bg-gradient-to-br from-gray-800 to-black text-white">
+      <h1 className="text-2xl font-bold mb-4">Product Management Dashboard</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <ProductForm addProduct={addProduct} />
+        <StockManagement products={products} updateProductStock={updateProductStock} />
       </div>
-    </ProductProvider>
+      <div className="mt-6">
+        <ProductList products={products} />
+      </div>
+    </div>
   );
 };
 

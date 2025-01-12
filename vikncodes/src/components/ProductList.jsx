@@ -1,25 +1,33 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../context/ProductContext";
+import React from "react";
 
-const ProductList = () => {
-  const { products } = useContext(ProductContext);
-
+const ProductList = ({ products }) => {
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-bold text-orange-600 mb-4 text-center">
-        Product List
-      </h2>
+    <div className="p-6 bg-gray-700 rounded-lg">
+      <h2 className="text-xl font-semibold mb-4">Product List</h2>
       {products.length > 0 ? (
-        <ul className="divide-y divide-gray-200">
-          {products.map((product, index) => (
-            <li key={index} className="py-4 flex justify-between items-center">
-              <span className="text-gray-700 font-medium">{product.name}</span>
-              <span className="text-gray-500">${product.price}</span>
-            </li>
-          ))}
-        </ul>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="bg-gray-800">
+              <th className="py-2 px-4">Product</th>
+              <th className="py-2 px-4">Count</th>
+              <th className="py-2 px-4">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 0 ? "bg-gray-600" : "bg-gray-700"}
+              >
+                <td className="py-2 px-4">{product.name}</td>
+                <td className="py-2 px-4">{product.count}</td>
+                <td className="py-2 px-4">₹{product.price.toFixed(2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       ) : (
-        <p className="text-gray-500 text-center">No products available.</p>
+        <p className="text-gray-400">No products available.</p>
       )}
     </div>
   );
