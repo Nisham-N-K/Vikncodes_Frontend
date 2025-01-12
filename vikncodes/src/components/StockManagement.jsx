@@ -15,6 +15,10 @@ const StockManagement = ({ products, updateProductStock }) => {
         text: "Stock count updated successfully!",
         icon: "success",
         confirmButtonText: "OK",
+        customClass: {
+          popup: "bg-gray-800 text-white",
+          confirmButton: "bg-green-500 hover:bg-green-600 text-white",
+        },
       });
     } else {
       Swal.fire({
@@ -22,6 +26,10 @@ const StockManagement = ({ products, updateProductStock }) => {
         text: "Please select a product to update.",
         icon: "error",
         confirmButtonText: "OK",
+        customClass: {
+          popup: "bg-gray-800 text-white",
+          confirmButton: "bg-red-500 hover:bg-red-600 text-white",
+        },
       });
     }
   };
