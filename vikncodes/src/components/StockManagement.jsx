@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const StockManagement = ({ products, updateProductStock }) => {
-  const [selectedProduct, setSelectedProduct] = useState(null); // Track selected product
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [productName, setProductName] = useState("");
   const [stockCount, setStockCount] = useState(0);
   const [productColor, setProductColor] = useState("");
   const [productSize, setProductSize] = useState("");
   const [productPrice, setProductPrice] = useState("");
 
-  // When a product is selected, populate the form fields
   useEffect(() => {
     if (selectedProduct) {
       setProductName(selectedProduct.name);
@@ -26,10 +25,8 @@ const StockManagement = ({ products, updateProductStock }) => {
     }
   }, [selectedProduct]);
 
-  // Handle product update
   const handleUpdateProduct = () => {
     if (productName && productPrice) {
-      // Perform product update logic here
       updateProductStock({
         name: productName,
         price: parseFloat(productPrice),
@@ -38,14 +35,12 @@ const StockManagement = ({ products, updateProductStock }) => {
         size: productSize,
       });
 
-      // Reset form after updating
       setProductName("");
       setStockCount(0);
       setProductColor("");
       setProductSize("");
       setProductPrice("");
 
-      // Show success message
       Swal.fire({
         title: "Success!",
         text: "Product updated successfully!",
@@ -79,7 +74,7 @@ const StockManagement = ({ products, updateProductStock }) => {
         value={selectedProduct ? selectedProduct.name : ""}
         onChange={(e) => {
           const product = products.find(p => p.name === e.target.value);
-          setSelectedProduct(product); // Set selected product
+          setSelectedProduct(product);
         }}
       >
         <option value="" disabled>
