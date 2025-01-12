@@ -33,10 +33,10 @@ const ProductList = ({ products, deleteProduct }) => {
   };
 
   return (
-    <div className="p-6 bg-gray-700 rounded-lg">
+    <div className="p-6 bg-gray-700 rounded-lg overflow-x-auto">
       <h2 className="text-xl font-semibold mb-4">Product List</h2>
       {products.length > 0 ? (
-        <table className="w-full text-left">
+        <table className="w-full min-w-max text-left">
           <thead>
             <tr className="bg-gray-800">
               <th className="py-2 px-4">Product</th>

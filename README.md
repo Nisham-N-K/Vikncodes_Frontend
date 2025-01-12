@@ -70,50 +70,74 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-## How It Works
+How It Works
 
-### 1. `App.jsx`
+1. App.jsx
 
-The main `App` component manages the state of the products and passes data to the other components (`ProductForm`, `StockManagement`, and `ProductList`). It has the following key functions:
+The main App component manages the state of the products and passes data to the other components (ProductForm, StockManagement, and ProductList). It has the following key functions:
 
-- **addProduct(product)**: Adds a new product to the `products` state.
-- **updateProductStock(updatedProduct)**: Updates the stock level of an existing product.
-- **deleteProduct(index)**: Deletes a product from the list by its index.
+addProduct(product): Adds a new product to the products state.
+
+updateProductStock(updatedProduct): Updates the stock level of an existing product.
+
+deleteProduct(index): Deletes a product from the list by its index.
 
 Here’s a brief breakdown of the flow:
-- **`ProductForm`** is used to add new products.
-- **`StockManagement`** is used to update the stock count of existing products.
-- **`ProductList`** displays the products and allows deletion.
 
-### 2. `ProductForm.jsx`
+ProductForm is used to add new products.
 
-This component allows users to enter details about a new product (like name, price, and stock count). When the form is submitted, it calls the `addProduct` function passed from `App.jsx` to add the product to the state.
+StockManagement is used to update the stock count of existing products.
 
-### 3. `StockManagement.jsx`
+ProductList displays the products and allows deletion.
 
-This component is responsible for updating the stock of an existing product. It receives the `products` list and the `updateProductStock` function as props. Users can select a product, adjust the stock count, and submit the form to update the product.
+2. ProductForm.jsx
 
-### 4. `ProductList.jsx`
+This component allows users to enter details about a new product (like name, price, and stock count). When the form is submitted, it calls the addProduct function passed from App.jsx to add the product to the state.
 
-This component displays the list of products. Each product is displayed with its name, price, and stock count. It also provides a button to delete a product, which calls the `deleteProduct` function from `App.jsx` to remove the product from the list.
+3. StockManagement.jsx
 
-## Usage
+This component is responsible for updating the stock of an existing product. It receives the products list and the updateProductStock function as props. Users can select a product, adjust the stock count, and submit the form to update the product.
 
-### Adding a Product:
-1. In the `ProductForm`, enter the product details (name, price, stock count).
-2. Click "Add Product" to add the product to the product list.
+4. ProductList.jsx
 
-### Updating Product Stock:
-1. In the `StockManagement`, select a product from the list.
-2. Update the stock count.
-3. Click "Update Stock" to update the product in the list.
+This component displays the list of products. Each product is displayed with its name, price, and stock count. It also provides a button to delete a product, which calls the deleteProduct function from App.jsx to remove the product from the list.
 
-### Deleting a Product:
-1. In the `ProductList`, click the "Delete" button next to the product you want to remove.
-2. The product will be removed from the list.
+Responsiveness
 
-## Technologies Used
+The codebase is designed to be fully responsive. Key responsive features include:
 
-- **React**: JavaScript library for building user interfaces.
-- **Tailwind CSS**: Utility-first CSS framework for styling the app.
-- **JavaScript (ES6)**: Used for writing the logic of the application.
+Horizontal Scrolling: The product list table is scrollable on smaller screens to maintain readability and prevent layout distortion.
+
+Flexible Table Layout: Ensures the table adapts to various screen sizes while maintaining proper alignment and spacing.
+
+Consistent Spacing: Uniform padding and margins across components enhance visual consistency on all devices.
+
+Usage
+
+Adding a Product:
+
+In the ProductForm, enter the product details (name, price, stock count).
+
+Click "Add Product" to add the product to the product list.
+
+Updating Product Stock:
+
+In the StockManagement, select a product from the list.
+
+Update the stock count.
+
+Click "Update Stock" to update the product in the list.
+
+Deleting a Product:
+
+In the ProductList, click the "Delete" button next to the product you want to remove.
+
+The product will be removed from the list.
+
+Technologies Used
+
+React: JavaScript library for building user interfaces.
+
+Tailwind CSS: Utility-first CSS framework for styling the app.
+
+JavaScript (ES6): Used for writing the logic of the application.

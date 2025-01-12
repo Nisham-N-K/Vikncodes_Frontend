@@ -24,15 +24,20 @@ const App = () => {
 
   return (
     <div className="min-h-screen px-8 py-8 bg-gradient-to-br from-gray-800 to-black text-white">
-      <h1 className="text-2xl font-bold mb-4">Product Management Dashboard</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+        Product Management Dashboard
+      </h1>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <ProductForm addProduct={addProduct} />
         <StockManagement
           products={products}
           updateProductStock={updateProductStock}
         />
       </div>
-      <div className="mt-6">
+
+      <div className="mt-10">
+        <h2 className="text-xl font-semibold mb-4">Available Products</h2>
         <ProductList products={products} deleteProduct={deleteProduct} />
       </div>
     </div>
