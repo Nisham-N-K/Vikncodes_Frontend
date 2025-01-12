@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const StockManagement = ({ products, updateProductStock }) => {
   const [productName, setProductName] = useState("");
@@ -9,9 +10,19 @@ const StockManagement = ({ products, updateProductStock }) => {
       updateProductStock(productName, stockCount);
       setProductName("");
       setStockCount(0);
-      alert("Stock count updated successfully!");
+      Swal.fire({
+        title: "Success!",
+        text: "Stock count updated successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
     } else {
-      alert("Please select a product to update.");
+      Swal.fire({
+        title: "Error",
+        text: "Please select a product to update.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
