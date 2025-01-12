@@ -17,6 +17,11 @@ const App = () => {
     setProducts(updatedProducts);
   };
 
+  const deleteProduct = (index) => {
+    const updatedProducts = products.filter((_, i) => i !== index);
+    setProducts(updatedProducts);
+  };
+
   return (
     <div className="min-h-screen px-8 py-8 bg-gradient-to-br from-gray-800 to-black text-white">
       <h1 className="text-2xl font-bold mb-4">Product Management Dashboard</h1>
@@ -25,7 +30,7 @@ const App = () => {
         <StockManagement products={products} updateProductStock={updateProductStock} />
       </div>
       <div className="mt-6">
-        <ProductList products={products} />
+        <ProductList products={products} deleteProduct={deleteProduct} />
       </div>
     </div>
   );

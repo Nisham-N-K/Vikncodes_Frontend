@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, deleteProduct }) => {
   return (
     <div className="p-6 bg-gray-700 rounded-lg">
       <h2 className="text-xl font-semibold mb-4">Product List</h2>
@@ -11,6 +11,7 @@ const ProductList = ({ products }) => {
               <th className="py-2 px-4">Product</th>
               <th className="py-2 px-4">Count</th>
               <th className="py-2 px-4">Price</th>
+              <th className="py-2 px-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -22,6 +23,14 @@ const ProductList = ({ products }) => {
                 <td className="py-2 px-4">{product.name}</td>
                 <td className="py-2 px-4">{product.count}</td>
                 <td className="py-2 px-4">₹{product.price.toFixed(2)}</td>
+                <td className="py-2 px-4">
+                  <button
+                    onClick={() => deleteProduct(index)}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    🗑️
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
