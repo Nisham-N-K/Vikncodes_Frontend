@@ -10,9 +10,9 @@ const App = () => {
     setProducts([...products, product]);
   };
 
-  const updateProductStock = (name, count) => {
+  const updateProductStock = (updatedProduct) => {
     const updatedProducts = products.map((product) =>
-      product.name === name ? { ...product, count } : product
+      product.name === updatedProduct.name ? updatedProduct : product
     );
     setProducts(updatedProducts);
   };
@@ -27,7 +27,10 @@ const App = () => {
       <h1 className="text-2xl font-bold mb-4">Product Management Dashboard</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <ProductForm addProduct={addProduct} />
-        <StockManagement products={products} updateProductStock={updateProductStock} />
+        <StockManagement
+          products={products}
+          updateProductStock={updateProductStock}
+        />
       </div>
       <div className="mt-6">
         <ProductList products={products} deleteProduct={deleteProduct} />
